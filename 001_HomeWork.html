@@ -1,0 +1,40 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт.
+При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть.
+Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+     <a href="#">Нажми сюда!</a>
+     <button style="position: fixed; left: 120px;">Стоп / Пуск</button>
+     <div  style="display: none;">Я тут</div>
+     
+     <script>
+         var a = document.querySelector("a");
+         var div = document.querySelector("div");
+         var button = document.querySelector("button");
+         var isEnabledFunction =  true;
+         a.addEventListener("click", divNone);
+         button.addEventListener("click", removeDiv);
+         function removeDiv() {
+            isEnabledFunction = !isEnabledFunction;
+        }
+        function divNone()  {
+            if (!isEnabledFunction) {
+                return;
+            }
+            if(div.style.display==="none") {
+                div.style.display="block";
+                return;
+            }
+            div.style.display="none";
+        }    
+     </script>
+ </body>
+ </html>
